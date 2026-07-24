@@ -8,18 +8,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Create remote project directory
-        uses: appleboy/ssh-action@v1
-        with:
-          host: 138.199.169.12
-          username: root
-          key: ${{ secrets.SECRET }}
-          script: |
-            mkdir ~/app
-            ls -al
-
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Copy project files to remote project directory
         uses: appleboy/scp-action@v1
