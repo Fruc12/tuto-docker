@@ -31,6 +31,5 @@ jobs:
             cd ~/app
             docker stop react-app-container || true
             docker rm react-app-container || true
-            docker rmi tuto-docker || true
             docker build -t tuto-docker .
             docker run -d -p 5173:3000 --name react-app-container --restart unless-stopped tuto-docker
