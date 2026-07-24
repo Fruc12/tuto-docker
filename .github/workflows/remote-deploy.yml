@@ -17,7 +17,7 @@ jobs:
           script: |
             mkdir ~/app
             ls -al
-            
+
       - name: Clone repository
         uses: actions/checkout@v4
 
@@ -40,4 +40,4 @@ jobs:
             cd ~/app
             docker rmi tuto-docker:latest --force || true
             docker build -t tuto-docker:latest .
-            docker run -d -p 3000:3000 tuto-docker:latest
+            docker run -d -p 5173:3000 tuto-docker:latest
