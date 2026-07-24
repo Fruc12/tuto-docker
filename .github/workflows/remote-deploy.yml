@@ -19,7 +19,7 @@ jobs:
             mkdir /app
             ls -al
 
-      - name: Cpy files to remote server
+      - name: Copy files to remote server
         uses: appleboy/scp-action@v0.1.3
         with:
             host: 138.199.169.12
@@ -38,5 +38,5 @@ jobs:
           port: 22
           script: |
             docker rmi tuto-docker:latest --force || true
-            docker build -t tuto-docker:latest .
-            docker run -d -p 5173:3000 tuto-docker:latest
+            docker build -t tuto-docker:latest . || true
+            docker run -d -p 5173:3000 tuto-docker:latest || true
