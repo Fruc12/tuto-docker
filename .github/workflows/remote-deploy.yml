@@ -38,6 +38,8 @@ jobs:
           port: 22
           script: |
             cd /app
-            docker rmi tuto-docker:latest --force || true
+            docker stop tuto-docker || true
+            docker rm tuto-docker || true
             docker build -t tuto-docker:latest .
-            docker run -d -p 5173:3000 tuto-docker:latest
+            docker run -d -p 5173:3000 --name tuto-docker --rm tuto-docker:latest
+            docker ps
